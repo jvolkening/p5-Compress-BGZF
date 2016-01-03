@@ -1,17 +1,17 @@
 Compress::BGZF
 ====
 
-A pure-perl implementation of blocked gzip (BGZF)
+A pure-Perl implementation of blocked gzip (BGZF)
 
 INSTALLATION
 ------------
 
 To install this module type the following:
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+    perl Makefile.PL
+    make
+    make test
+    make install
 
 
 DEPENDENCIES
@@ -19,13 +19,13 @@ DEPENDENCIES
 
 Compress::BGZF uses the following modules:
 
-  List::Util
+  * List::Util
 
-  Compress::Zlib
+  * Compress::Zlib
 
-  IO::Uncompress::RawInflate
+  * IO::Uncompress::RawInflate
 
-  IO::Compress::RawDeflate
+  * IO::Compress::RawDeflate
 
 These are already included in recent core perl distributions
 
@@ -34,7 +34,7 @@ These are already included in recent core perl distributions
 COPYRIGHT AND LICENSE
 ---------------------
 
-Copyright (C) 2015 Jeremy Volkening <jdv@base2bio.com>
+Copyright (C) 2015-2016 Jeremy Volkening <jdv@base2bio.com>
 
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Library General Public License as published by the Free
