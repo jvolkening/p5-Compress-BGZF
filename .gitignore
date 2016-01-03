@@ -1,7 +1,11 @@
 .*
 !/.gitignore
-Makefile
-blib
-MYMETA*
-pm_to_blib
+/Makefile
+/Makefile.old
+/blib/
+/META.yml
+/META.json
+/MYMETA*
+/pm_to_blib
 *.tar.gz
+releases
