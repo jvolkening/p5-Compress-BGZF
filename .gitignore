@@ -1,0 +1,7 @@
+.*
+!/.gitignore
+Makefile
+blib
+MYMETA*
+pm_to_blib
+*.tar.gz
