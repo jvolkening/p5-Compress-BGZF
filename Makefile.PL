@@ -1,7 +1,16 @@
-use 5.010001;
+use 5.012000;
+
 use strict;
 use warnings FATAL => 'all';
+
+use Config;
 use ExtUtils::MakeMaker;
+
+# require 64-bit integer support
+if (! $Config{use64bitint}) {
+    warn "64-bit integer support required for installation\n";
+    exit(0);
+}
 
 WriteMakefile(
     NAME             => 'Compress::BGZF',
@@ -10,8 +19,9 @@ WriteMakefile(
     ABSTRACT_FROM    => 'lib/Compress/BGZF.pm',
     LICENSE          => 'GPL_3',
     PL_FILES         => {},
-    MIN_PERL_VERSION => 5.010001,
+    MIN_PERL_VERSION => 5.012000,
     CONFIGURE_REQUIRES => {
+        'Config'              => 0,
         'ExtUtils::MakeMaker' => 0,
     },
     BUILD_REQUIRES => {
