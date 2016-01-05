@@ -6,7 +6,6 @@ use warnings;
 
 use Carp;
 use Compress::Zlib;
-use IO::Uncompress::RawInflate qw/rawinflate $RawInflateError/;
 use List::Util qw/sum/;
 
 use constant BGZF_MAGIC => pack "H*", '1f8b0804';
@@ -185,8 +184,12 @@ sub _unpack_block {
         
         # decode actual content
         my $payload = _safe_sysread($self->{fh}, $payload_len);
-        rawinflate( \$payload => \$content )
-            or croak "Error inflating: $RawInflateError\n";
+        my ($i,$status) = inflateInit(-WindowBits => -&MAX_WBITS());
+        croak "Error during inflate init\n" if ($status != Z_OK);
+        ($content,$status) = $i->inflate($payload);
+        croak "Error during inflate run\n" if ($status != Z_STREAM_END);
+        #rawinflate( \$payload => \$content )
+            #or croak "Error inflating: $RawInflateError\n";
         my $crc_given = unpack 'V', _safe_sysread($self->{fh} => 4);
         croak "content CRC32 mismatch" if ( $crc_given != crc32($content) );
 
