@@ -42,7 +42,7 @@ for my $i (0..$#files) {
 
     # check reading
 
-    open my $fh_u, '<', $file;
+    open my $fh_u, '<:raw', $file;
 
     $reader->move_to(5,0);
     seek $fh_u, 5, 0;
