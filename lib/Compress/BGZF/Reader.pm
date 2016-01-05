@@ -728,6 +728,24 @@ compatible with those of the htslib C<bgzip> software, and vice versa.
 
 =back
 
+=head1 NEWLINES
+
+Note that when using the tied filehandle interface, the behavior of the module
+will replicate that of a file opened in raw mode. That is, none of the Perl
+magic concerning platform-specific newline conversions will be performed. It's
+expected that users of this module will generally be seeking to predetermined
+byte offsets in a file (such as read from an index), and operations such as
+C<seek>, C<read>, and C<< <> >> are not reliable in a cross-platform way on
+files opened in 'text' mode. In other words, seeking to and reading from a
+specific offset in 'text' mode may return different results depending on the
+platform Perl is running on. This isn't an issue specific to this module but
+to Perl in general. Users should simply be aware that any data read using this
+module will retain its original line endings, which may not be the same as
+those of the current platform.
+
+For a further discussion, see
+L<http://perldoc.perl.org/perlport.html#Newlines>.
+
 =head1 CAVEATS AND BUGS
 
 This is code is in alpha testing stage and the API is not guaranteed to be
