@@ -1,4 +1,4 @@
-package Compress::BGZF 0.002;
+package Compress::BGZF 0.002001;
 
 use strict;
 use warnings;
@@ -10,10 +10,6 @@ __END__
 =head1 NAME
 
 Compress::BGZF - Read/write blocked GZIP (BGZF) files
-
-=head1 VERSION
-
-version 0.002
 
 =head1 SYNOPSIS
 
