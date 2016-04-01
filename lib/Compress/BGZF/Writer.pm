@@ -1,6 +1,6 @@
 package Compress::BGZF::Writer;
 
-use 5.012000;
+use 5.008;
 use strict;
 use warnings;
 
