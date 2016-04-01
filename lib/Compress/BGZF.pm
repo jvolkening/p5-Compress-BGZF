@@ -1,10 +1,8 @@
-package Compress::BGZF;
+package Compress::BGZF 0.003;
 
-use 5.010;
+use 5.012;
 use strict;
 use warnings;
-
-our $VERSION = "0.004";
 
 1;
 
