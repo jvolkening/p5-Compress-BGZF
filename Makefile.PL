@@ -1,4 +1,4 @@
-use 5.008;
+use 5.010;
 
 use strict;
 use warnings FATAL => 'all';
@@ -19,7 +19,7 @@ WriteMakefile(
     ABSTRACT_FROM    => 'lib/Compress/BGZF.pm',
     LICENSE          => 'GPL_3',
     PL_FILES         => {},
-    MIN_PERL_VERSION => 5.008,
+    MIN_PERL_VERSION => 5.010,
     CONFIGURE_REQUIRES => {
         'Config'              => 0,
         'ExtUtils::MakeMaker' => 0,
