@@ -300,7 +300,7 @@ sub getline {
     while (1) {
 
         # return immediately if EOF
-        return $data if ($self->{buffer_len} < 0);
+        last if ($self->{buffer_len} < 0);
 
         # search current block for record separator
         # start searching from the current buffer offset
@@ -318,7 +318,7 @@ sub getline {
 
             $self->{u_offset} += length($data);
 
-            return $data;
+            last;
 
         }
 
@@ -328,7 +328,7 @@ sub getline {
 
     }
 
-    return;
+    return length($data) > 0 ? $data : undef;
 
 }
 
