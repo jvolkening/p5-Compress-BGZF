@@ -259,10 +259,6 @@ __END__
 
 Compress::BGZF::Writer - Performs blocked GZIP (BGZF) compression
 
-=head1 VERSION
-
-version 0.002
-
 =head1 SYNOPSIS
 
     use Compress::BGZF::Writer;

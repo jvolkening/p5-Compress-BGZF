@@ -1,4 +1,4 @@
-package Compress::BGZF 0.003;
+package Compress::BGZF 0.004;
 
 use 5.012;
 use strict;

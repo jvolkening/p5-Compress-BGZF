@@ -536,6 +536,18 @@ sub _seek {
 
 }
 
+sub get_vo {
+
+    #-------------------------------------------------------------------------
+    # no arguments
+    #-------------------------------------------------------------------------
+    # RET 0 : virtual offset of current position
+    #-------------------------------------------------------------------------
+
+    my ($self) = @_;
+    return  ($self->{block_offset} << 16) | $self->{buffer_offset};
+
+}
 
 sub move_to_vo {
 
@@ -586,10 +598,6 @@ __END__
 =head1 NAME
 
 Compress::BGZF::Reader - Performs blocked GZIP (BGZF) decompression
-
-=head1 VERSION
-
-version 0.002
 
 =head1 SYNOPSIS
 
@@ -690,10 +698,16 @@ offset and the relativity of the offset (0: file start, 1: current, 2: file end)
 
 =item B<move_to_vo>
 
-    $reader->move_to( $virt_offset );
+    $reader->move_to_vo( $virt_offset );
 
 Like C<move_to>, but takes as a single argument a virtual offset. Virtual
 offsets are described more in the top-level documentation for C<Compress::BGZF>.
+
+=item B<get_vo>
+
+    $reader->get_vo();
+
+Returns the virtual offset of the current read position
 
 =item B<read_data>
 
