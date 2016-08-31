@@ -1,5 +1,9 @@
 Revision history for Compress-BGZF
 
+0.005     2016-08-30
+          Fixed serious bug causing duplicated filehandles between objects
+0.004     2016-05-16
+          Added get_vo() method
 0.002001  2016-01-05
           Changed INFLATE interface to boost read speeds by ~ 50%
           Fixed bug in tests that caused failure on Windows machines
