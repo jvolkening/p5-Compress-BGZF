@@ -36,7 +36,7 @@ for my $i (0..$#files) {
 
     # initialize read pair
     my $fh_c = Compress::BGZF::Reader->new_filehandle($tmp_fn);
-    ok (ref($fh_c) eq 'GLOB', "returned filehandle GLOB");
+    ok (ref($fh_c) eq 'FileHandle', "returned filehandle FileHandle");
     my $buf_c;
     my $buf_u;
     my @inputs = ( [$fh_c, $buf_c], [$fh_u, $buf_u] );

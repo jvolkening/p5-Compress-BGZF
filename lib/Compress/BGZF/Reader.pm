@@ -6,6 +6,7 @@ use warnings;
 use Carp;
 use Compress::Zlib;
 use List::Util qw/sum/;
+use FileHandle;
 
 use constant BGZF_MAGIC => pack "H*", '1f8b0804';
 use constant HEAD_BYTES => 12; # not including extra fields
@@ -38,9 +39,12 @@ sub new_filehandle {
 
     my ($class, $fn_in) = @_;
     croak "input filename required" if (! defined $fn_in);
-    tie *FH, $class, $fn_in or croak "failed to tie filehandle";
+    my $fh = FileHandle->new;
+    tie *$fh, $class, $fn_in or croak "failed to tie filehandle";
+    #tie *FH, $class, $fn_in or croak "failed to tie filehandle";
 
-    return \*FH;
+    return $fh;
+    #return \*FH;
 
 }
 
