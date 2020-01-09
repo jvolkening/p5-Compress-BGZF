@@ -6,6 +6,7 @@ lib/Compress/BGZF/Reader.pm
 lib/Compress/BGZF/Writer.pm
 LICENSE
 MANIFEST
+MANIFEST.SKIP
 META.json
 META.yml
 README.md
