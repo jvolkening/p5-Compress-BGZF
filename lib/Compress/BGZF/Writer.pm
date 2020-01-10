@@ -209,8 +209,10 @@ sub finalize {
             if ( length($unwritten) );
 
     }
-    close $self->{fh}
-        or croak "Error closing compressed file";
+    if (defined fileno($self->{fh}) ) {
+        close $self->{fh}
+            or croak "Error closing compressed file";
+    }
 
     return;
 

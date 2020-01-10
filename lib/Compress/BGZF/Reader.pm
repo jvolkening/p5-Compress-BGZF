@@ -299,7 +299,7 @@ sub getline {
 
     my ($self) = @_;
 
-    my $data;
+    my $data = '';
 
     while (1) {
 
