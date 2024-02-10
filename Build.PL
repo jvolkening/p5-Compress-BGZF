@@ -17,7 +17,7 @@ my $deployer = Module::Build->subclass(
 sub ACTION_deploy {
 
     require CPAN::Uploader;
-    use MetaCPAN::Client;
+    require MetaCPAN::Client;
     use version;
 
     my $self = shift;
