@@ -27,7 +27,7 @@ sub ACTION_deploy {
     my $name = $self->dist_name;
     my $mpan = MetaCPAN::Client->new();
     my $existing = $mpan->release($name)->version;
-    if (version->parse($existing) >= version->parse($self->version)) {
+    if (version->parse($existing) >= version->parse($self->dist_version)) {
         warn "This version is <= the version on CPAN, aborting nicely\n";
         return 1;
     }
