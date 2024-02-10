@@ -14,7 +14,7 @@ if (! $Config{use64bitint}) {
 my $builder = Module::Build->new(
     module_name        => 'Compress::BGZF',
     license            => 'GPL_3',
-    dist_author        => q{Jeremy Volkening <jdv@base2bio.com>},
+    dist_author        => q{Jeremy Volkening <volkening@cpan.org>},
     configure_requires => {
         'Config'        => 0,
         'Module::Build' => 0,
