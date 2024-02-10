@@ -11,7 +11,27 @@ if (! $Config{use64bitint}) {
     exit(0);
 }
 
-my $builder = Module::Build->new(
+my $deployer = Module::Build->subclass(
+      class => 'Module::Build::Deploy',
+      code => <<'SUBCLASS' );
+sub ACTION_deploy {
+
+    require CPAN::Uploader;
+    my $self = shift;
+    $self->depends_on("dist");
+
+    my $tarball = $self->dist_dir() . '.tar.gz';
+    die "tarball not found"
+        if (! -e $tarball);
+    print "Uploading $tarball\n";
+    CPAN::Uploader->upload_file( $tarball, {
+        user     => $ENV{PAUSE_USER},
+        password => $ENV{PAUSE_PASS},
+    } );
+}
+SUBCLASS
+
+my $builder = $deployer->new(
     module_name        => 'Compress::BGZF',
     license            => 'GPL_3',
     dist_author        => q{Jeremy Volkening <volkening@cpan.org>},
